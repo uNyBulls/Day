@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day Decorações</title>
+  <style>
+    /* RESET BÁSICO */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* NAVBAR */
+    nav {
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px 20px;
+
+      max-width: 1200px;
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Container logo + nome */
+    .logo-nome {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      max-width: 100px;
+      height: auto;
+      display: block;
+    }
+
+    .titulo-loja {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #e91e63;
+      text-shadow: 1px 1px 2px #aaa;
+      white-space: nowrap;
+    }
+
+    /* Menu de navegação */
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      flex-grow: 1;
+    }
+
+    nav ul li a {
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      color: #444;
+      white-space: nowrap;
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background-color: #e0e0e0;
+      color: #000;
+    }
+
+    /* CABEÇALHO */
+    .cabecalho {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto 30px auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* BANNER */
+    .banner img {
+      width: 100%;
+      max-height: 430px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* PRODUTOS */
+    .produtos {
+      max-width: 1200px;
+      margin: 0 auto 50px auto;
+      padding: 0 15px 40px 15px;
+    }
+
+    .produtos h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #e91e63;
+      font-weight: 700;
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 250px;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    .card img {
+      max-width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .card img:hover {
+      transform: scale(1.05);
+    }
+
+    .card-content strong {
+      color: #e91e63;
+      font-size: 1.2rem;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      margin-top: 10px;
+      display: inline-block;
+      user-select: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .whatsapp-btn:hover,
+    .whatsapp-btn:focus {
+      background-color: #1ebe57;
+    }
+
+    /* SOBRE */
+    .sobre {
+      background-color: white;
+      max-width: 900px;
+      margin: 0 auto 50px auto;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+
+    .sobre h2 {
+      color: #e91e63;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .sobre p {
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    /* CONTATO */
+    .contato {
+      max-width: 400px;
+      margin: 0 auto 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .contato h2 {
+      color: #e91e63;
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    /* FORMULÁRIO */
+    .form-orcamento {
+      max-width: 480px;
+      margin: 0 auto 60px auto;
+      background: white;
+      padding: 25px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .form-orcamento h2 {
+      text-align: center;
+      color: #e91e63;
+      font-weight: 700;
+      margin-bottom: 25px;
+      font-size: 1.9rem;
+    }
+
+    .form-orcamento label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+      font-size: 0.95rem;
+    }
+
+    .form-orcamento input,
+    .form-orcamento textarea,
+    .form-orcamento select {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-orcamento input:focus,
+    .form-orcamento textarea:focus,
+    .form-orcamento select:focus {
+      border-color: #e91e63;
+      outline: none;
+      box-shadow: 0 0 6px #e91e63aa;
+    }
+
+    .form-orcamento input[readonly] {
+      background-color: #f0f0f0;
+      color: #555;
+      cursor: not-allowed;
+    }
+
+    .form-orcamento button {
+      width: 100%;
+      background-color: #e91e63;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      padding: 12px 0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-orcamento button:hover,
+    .form-orcamento button:focus {
+      background-color: #b7154a;
+    }
+
+    /* RODAPÉ */
+    footer {
+      background-color: #f2f2f2;
+      color: #666;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 18px 15px;
+      user-select: none;
+      box-shadow: inset 0 1px 0 #ddd;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+      nav ul {
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      .logo-nome {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .titulo-loja {
+        font-size: 1.5rem;
+      }
+      .logo {
+        max-width: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo-nome">
+      <img src="imagens/logo.png" alt="Logo Day Decorações" class="logo" />
+      <div class="titulo-loja">DAY DECORAÇÕES</div>
+    </div>
+    <ul>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#decoracoes">Decorações</a></li>
+      <li><a href="#festas-realizadas">Festas Realizadas</a></li>
+      <li><a href="#sobre">Sobre a Empresa</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="#form-orcamento">Solicitar Orçamento</a></li>
+    </ul>
+  </nav>
+
+  <header class="cabecalho" id="inicio">
+    <img src="imagens/logo.png" alt="Logo Day Decorações" class="logo" />
+    <h1 class="titulo-loja">DAY DECORAÇÕES</h1>
+  </header>
+
+  <section class="banner">
+    <img src="imagens/banner.jpg" alt="Banner principal" />
+  </section>
+
+  <section class="produtos" id="decoracoes">
+    <h2>Temas de Mini Decorações</h2>
+    <div class="galeria">
+      <div class="card"><img src="imagens/produtos/tema1.jpg" alt="Stitch" /><div class="card-content"><strong>Stitch</strong><span class="whatsapp-btn" onclick="scrollToForm('Stitch')">Solicitar Orçamento</span></div></div>
+
+      <div class="card"><img src="imagens/produtos/tema2.jpg" alt="Jardim Encantado" /><div class="card-content"><strong>Jardim Encantado</strong><span class="whatsapp-btn" onclick="scrollToForm('Jardim Encantado')">Solicitar Orçamento</span></div></div>
+
+      <div class="card"><img src="imagens/produtos/tema3.jpg" alt="Mickey" /><div class="card-content"><strong>Mickey</strong><span class="whatsapp-btn" onclick="scrollToForm('Mickey')">Solicitar Orçamento</span></div></div>
+
+      <div class="card"><img src="imagens/produtos/tema4.jpg" alt="Capivara" /><div class="card-content"><strong>Capivara</strong><span class="whatsapp-btn" onclick="scrollToForm('Capivara')">Solicitar Orçamento</span></div></div>
+
+      <div class="card"><img src="imagens/produtos/tema5.jpg" alt="Chá Revelação" /><div class="card-content"><strong>Chá Revelação</strong><span class="whatsapp-btn" onclick="scrollToForm('Chá Revelação')">Solicitar Orçamento</span></div></div>
+
+      <div class="card"><img src="imagens/produtos/tema6.jpg" alt="Vingadores" /><div class="card-content"><strong>Vingadores</strong><span class="whatsapp-btn" onclick="scrollToForm('Vingadores')">Solicitar Orçamento</span></div></div>
+
+      <div class="card"><img src="imagens/produtos/tema7.jpg" alt="Minnie" /><div class="card-content"><strong>Minnie</strong><span class="whatsapp-btn" onclick="scrollToForm('Minnie')">Solicitar Orçamento</span></div></div>
+
+      <div class="card"><img src="imagens/produtos/tema8.jpg" alt="Homem-Aranha" /><div class="card-content"><strong>Homem-Aranha</strong><span class="whatsapp-btn" onclick="scrollToForm('Homem-Aranha')">Solicitar Orçamento</span></div></div>
+
+      <div class="card"><img src="imagens/produtos/tema9.jpg" alt="Bobbie Goods" /><div class="card-content"><strong>Bobbie Goods</strong><span class="whatsapp-btn" onclick="scrollToForm('Bobbie Goods')">Solicitar Orçamento</span></div></div>
+
+      <div class="card"><img src="imagens/produtos/tema10.jpg" alt="Patrulha Canina" /><div class="card-content"><strong>Patrulha Canina</strong><span class="whatsapp-btn" onclick="scrollToForm('Patrulha Canina')">Solicitar Orçamento</span></div></div>
+
+      <div class="card"><img src="imagens/produtos/tema11.jpg" alt="Safari" /><div class="card-content"><strong>Safari</strong><span class="whatsapp-btn" onclick="scrollToForm('Safari')">Solicitar Orçamento</span></div></div>
+    </div>
+  </section>
+
+  <section class="festas-realizadas" id="festas-realizadas" style="max-width: 1200px; margin: 0 auto 50px auto; padding: 0 15px 40px 15px;">
+    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 25px; color: #e91e63; font-weight: 700;">Festas Realizadas</h2>
+    <div class="galeria">
+      <div class="card">
+        <img src="imagens/festas/festa1.jpg" alt="Festa Infantil - Stitch" />
+        <div class="card-content"><strong>Festa Infantil - Stitch</strong></div>
+      </div>
+      <div class="card">
+        <img src="imagens/festas/festa2.jpg" alt="Festa Jardim Encantado" />
+        <div class="card-content"><strong>Festa Jardim Encantado</strong></div>
+      </div>
+      <div class="card">
+        <img src="imagens/festas/festa3.jpg" alt="Festa Mickey" />
+        <div class="card-content"><strong>Festa Mickey</strong></div>
+      </div>
+      <div class="card">
+        <img src="imagens/festas/festa4.jpg" alt="Festa Capivara" />
+        <div class="card-content"><strong>Festa Capivara</strong></div>
+      </div>
+      <div class="card">
+        <img src="imagens/festas/festa5.jpg" alt="Festa Chá Revelação" />
+        <div class="card-content"><strong>Festa Chá Revelação</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sobre" id="sobre">
+    <h2>Sobre a Day Decorações</h2>
+    <p>
+      Somos apaixonados por mini decorações criativas e modernas. Criamos temas personalizados para deixar qualquer espaço mais encantador e com um toque especial.
+    </p>
+  </section>
+
+  <section class="contato" id="contato">
+    <h2>Entre em Contato</h2>
+    <a href="https://wa.me/5541996059852?text=Olá!%20Quero%20saber%20mais%20sobre%20as%20mini%20decorações." target="_blank" class="whatsapp-btn">Fale Conosco no WhatsApp</a>
+  </section>
+
+  <!-- ... (todo o HTML anterior até o formulário permanece igual) -->
+
+<section id="form-orcamento" class="form-orcamento">
+  <h2>Solicitar Orçamento</h2>
+  <form id="orcamentoForm">
+    <label for="nome">Nome Completo:</label>
+    <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+
+    <label for="telefone">Telefone:</label>
+    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required />
+
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro, cidade" required />
+
+    <label for="tema">Tema Escolhido:</label>
+    <input type="text" id="tema" name="tema" readonly />
+
+    <label for="data-festa">Data para Festa:</label>
+    <input type="date" id="data-festa" name="data-festa" required />
+
+    <label for="pagamento">Método de Pagamento:</label>
+    <select id="pagamento" name="pagamento" required>
+      <option value="" disabled selected>Selecione o método</option>
+      <option value="Pix">Pix</option>
+      <option value="Cartão de Crédito">Cartão de Crédito</option>
+      <option value="Cartão de Débito">Cartão de Débito</option>
+      <option value="Boleto">Boleto</option>
+      <option value="Dinheiro">Dinheiro</option>
+    </select>
+
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Conte o que deseja..." required></textarea>
+
+    <button type="submit">Enviar Solicitação</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 Day Decorações. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+  // Função que rola até o formulário e já preenche o tema escolhido
+  function scrollToForm(tema) {
+    document.getElementById('tema').value = tema;
+    document.getElementById('nome').focus();
+    document.getElementById('form-orcamento').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  const form = document.getElementById('orcamentoForm');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const nome = form.nome.value.trim();
+    const telefone = form.telefone.value.trim();
+    const email = form.email.value.trim();
+    const endereco = form.endereco.value.trim();
+    const tema = form.tema.value.trim();
+    const dataFesta = form['data-festa'].value;
+    const pagamento = form.pagamento.value;
+    const mensagem = form.mensagem.value.trim();
+
+    const textoWhats =
+      `📋 *Solicitação de Orçamento*\n` +
+      `----------------------------------\n` +
+      `👤 *Nome:* ${nome}\n` +
+      `📞 *Telefone:* ${telefone}\n` +
+      `📧 *Email:* ${email}\n` +
+      `📍 *Endereço:* ${endereco}\n` +
+      `🎨 *Tema Escolhido:* ${tema}\n` +
+      `📅 *Data para Festa:* ${dataFesta}\n` +
+      `💳 *Método de Pagamento:* ${pagamento}\n` +
+      `💬 *Mensagem:* ${mensagem}\n` +
+      `----------------------------------\n` +
+      `Obrigado pela preferência! 😊`;
+
+    const numeroWhats = "5541996059852";
+
+    const url = `https://wa.me/${numeroWhats}?text=${encodeURIComponent(textoWhats)}`;
+
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
