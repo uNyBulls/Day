@@ -384,6 +384,11 @@
       <div class="card"><img src="imagens/produtos/tema10.jpg" alt="Patrulha Canina" /><div class="card-content"><strong>Patrulha Canina</strong><span class="whatsapp-btn" onclick="scrollToForm('Patrulha Canina')">Solicitar Orçamento</span></div></div>
 
       <div class="card"><img src="imagens/produtos/tema11.jpg" alt="Safari" /><div class="card-content"><strong>Safari</strong><span class="whatsapp-btn" onclick="scrollToForm('Safari')">Solicitar Orçamento</span></div></div>
+
+      <!-- Novos temas -->
+      <div class="card"><img src="imagens/produtos/tema12.jpg" alt="Festa Junina" /><div class="card-content"><strong>Festa Junina</strong><span class="whatsapp-btn" onclick="scrollToForm('Festa Junina')">Solicitar Orçamento</span></div></div>
+
+      <div class="card"><img src="imagens/produtos/tema13.jpg" alt="Caminhão" /><div class="card-content"><strong>Caminhão</strong><span class="whatsapp-btn" onclick="scrollToForm('Caminhão')">Solicitar Orçamento</span></div></div>
     </div>
   </section>
 
@@ -425,92 +430,106 @@
     <a href="https://wa.me/5541996059852?text=Olá!%20Quero%20saber%20mais%20sobre%20as%20mini%20decorações." target="_blank" class="whatsapp-btn">Fale Conosco no WhatsApp</a>
   </section>
 
-  <!-- ... (todo o HTML anterior até o formulário permanece igual) -->
+  <section id="form-orcamento" class="form-orcamento">
+    <h2>Solicitar Orçamento</h2>
+    <form id="orcamentoForm">
+      <label for="nome">Nome Completo:</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
 
-<section id="form-orcamento" class="form-orcamento">
-  <h2>Solicitar Orçamento</h2>
-  <form id="orcamentoForm">
-    <label for="nome">Nome Completo:</label>
-    <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
 
-    <label for="telefone">Telefone:</label>
-    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required />
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required />
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro, cidade" required />
 
-    <label for="endereco">Endereço:</label>
-    <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro, cidade" required />
+      <label for="tema">Tema Escolhido:</label>
+      <select id="tema" name="tema" required>
+        <option value="" disabled selected>Selecione o tema</option>
+        <option value="Stitch">Stitch</option>
+        <option value="Jardim Encantado">Jardim Encantado</option>
+        <option value="Mickey">Mickey</option>
+        <option value="Capivara">Capivara</option>
+        <option value="Chá Revelação">Chá Revelação</option>
+        <option value="Vingadores">Vingadores</option>
+        <option value="Minnie">Minnie</option>
+        <option value="Homem-Aranha">Homem-Aranha</option>
+        <option value="Bobbie Goods">Bobbie Goods</option>
+        <option value="Patrulha Canina">Patrulha Canina</option>
+        <option value="Safari">Safari</option>
+        <option value="Festa Junina">Festa Junina</option>
+        <option value="Caminhão">Caminhão</option>
+      </select>
 
-    <label for="tema">Tema Escolhido:</label>
-    <input type="text" id="tema" name="tema" readonly />
+      <label for="data-festa">Data para Festa:</label>
+      <input type="date" id="data-festa" name="data-festa" required />
 
-    <label for="data-festa">Data para Festa:</label>
-    <input type="date" id="data-festa" name="data-festa" required />
+      <label for="pagamento">Método de Pagamento:</label>
+      <select id="pagamento" name="pagamento" required>
+        <option value="" disabled selected>Selecione o método</option>
+        <option value="Pix">Pix</option>
+        <option value="Cartão de Crédito">Cartão de Crédito</option>
+        <option value="Cartão de Débito">Cartão de Débito</option>
+        <option value="Boleto">Boleto</option>
+        <option value="Dinheiro">Dinheiro</option>
+      </select>
 
-    <label for="pagamento">Método de Pagamento:</label>
-    <select id="pagamento" name="pagamento" required>
-      <option value="" disabled selected>Selecione o método</option>
-      <option value="Pix">Pix</option>
-      <option value="Cartão de Crédito">Cartão de Crédito</option>
-      <option value="Cartão de Débito">Cartão de Débito</option>
-      <option value="Boleto">Boleto</option>
-      <option value="Dinheiro">Dinheiro</option>
-    </select>
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Conte o que deseja..." required></textarea>
 
-    <label for="mensagem">Mensagem:</label>
-    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Conte o que deseja..." required></textarea>
+      <button type="submit">Enviar Solicitação</button>
+    </form>
+  </section>
 
-    <button type="submit">Enviar Solicitação</button>
-  </form>
-</section>
+  <footer>
+    <p>&copy; 2025 Day Decorações. Todos os direitos reservados.</p>
+  </footer>
 
-<footer>
-  <p>&copy; 2025 Day Decorações. Todos os direitos reservados.</p>
-</footer>
+  <script>
+    // Função que rola até o formulário e já preenche o tema escolhido no select
+    function scrollToForm(tema) {
+      const selectTema = document.getElementById('tema');
+      selectTema.value = tema;
+      document.getElementById('nome').focus();
+      document.getElementById('form-orcamento').scrollIntoView({ behavior: 'smooth' });
+    }
 
-<script>
-  // Função que rola até o formulário e já preenche o tema escolhido
-  function scrollToForm(tema) {
-    document.getElementById('tema').value = tema;
-    document.getElementById('nome').focus();
-    document.getElementById('form-orcamento').scrollIntoView({ behavior: 'smooth' });
-  }
+    const form = document.getElementById('orcamentoForm');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
 
-  const form = document.getElementById('orcamentoForm');
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
+      const nome = form.nome.value.trim();
+      const telefone = form.telefone.value.trim();
+      const email = form.email.value.trim();
+      const endereco = form.endereco.value.trim();
+      const tema = form.tema.value.trim();
+      const dataFesta = form['data-festa'].value;
+      const pagamento = form.pagamento.value;
+      const mensagem = form.mensagem.value.trim();
 
-    const nome = form.nome.value.trim();
-    const telefone = form.telefone.value.trim();
-    const email = form.email.value.trim();
-    const endereco = form.endereco.value.trim();
-    const tema = form.tema.value.trim();
-    const dataFesta = form['data-festa'].value;
-    const pagamento = form.pagamento.value;
-    const mensagem = form.mensagem.value.trim();
+      const textoWhats =
+        `📋 *Solicitação de Orçamento*\n` +
+        `----------------------------------\n` +
+        `👤 *Nome:* ${nome}\n` +
+        `📞 *Telefone:* ${telefone}\n` +
+        `📧 *Email:* ${email}\n` +
+        `📍 *Endereço:* ${endereco}\n` +
+        `🎨 *Tema Escolhido:* ${tema}\n` +
+        `📅 *Data para Festa:* ${dataFesta}\n` +
+        `💳 *Método de Pagamento:* ${pagamento}\n` +
+        `💬 *Mensagem:* ${mensagem}\n` +
+        `----------------------------------\n` +
+        `Obrigado pela preferência! 😊`;
 
-    const textoWhats =
-      `📋 *Solicitação de Orçamento*\n` +
-      `----------------------------------\n` +
-      `👤 *Nome:* ${nome}\n` +
-      `📞 *Telefone:* ${telefone}\n` +
-      `📧 *Email:* ${email}\n` +
-      `📍 *Endereço:* ${endereco}\n` +
-      `🎨 *Tema Escolhido:* ${tema}\n` +
-      `📅 *Data para Festa:* ${dataFesta}\n` +
-      `💳 *Método de Pagamento:* ${pagamento}\n` +
-      `💬 *Mensagem:* ${mensagem}\n` +
-      `----------------------------------\n` +
-      `Obrigado pela preferência! 😊`;
+      const numeroWhats = "5541996059852";
 
-    const numeroWhats = "5541996059852";
+      const url = `https://wa.me/${numeroWhats}?text=${encodeURIComponent(textoWhats)}`;
 
-    const url = `https://wa.me/${numeroWhats}?text=${encodeURIComponent(textoWhats)}`;
-
-    window.open(url, '_blank');
-  });
-</script>
+      window.open(url, '_blank');
+    });
+  </script>
 
 </body>
 </html>
