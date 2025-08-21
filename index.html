@@ -4,724 +4,173 @@
   <meta charset="UTF-8" />
   <meta name="description" content="Day Decorações — Mini decorações criativas e modernas para transformar seus momentos em lembranças inesquecíveis." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Day Decorações</title>
-
+  <title>Day Decorações 🎉✨</title>
+  <!-- Link para o CSS -->
+  <link rel="stylesheet" href="estilo.css" />
+  <!-- Script externo, se necessário -->
+  <script src="caminho/do/seu/arquivo/script.js" defer></script>
   <style>
-    /* =========================
-       VARIÁVEIS + RESET
-    ========================== */
-    :root{
-      --brand: #e91e63;
-      --brand-600:#d81b60;
-      --brand-700:#b7154a;
-      --bg-soft:#fff0f5;
-      --text:#333;
-      --muted:#666;
-      --card:#ffffff;
-      --shadow-1: 0 2px 6px rgba(0,0,0,.08);
-      --shadow-2: 0 6px 18px rgba(0,0,0,.12);
-      --whats:#25D366;
-      --whats-600:#1ebe57;
-      --radius:14px;
-      --container:1200px;
-      --space: clamp(14px, 2vw, 22px);
-    }
-
-    *{ box-sizing:border-box; margin:0; padding:0; }
-
-    html{ scroll-behavior:smooth; }
-
-    body{
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-soft);
-      color: var(--text);
-      line-height: 1.6;
-      text-align: center; /* centraliza textos padrão */
-    }
-
-    a{ color:inherit; text-decoration:none; }
-
-    img{ max-width:100%; display:block; }
-
-    /* Acessibilidade: pular para conteúdo */
-    .skip-link{
-      position:absolute; left:-9999px; top:auto;
-      background:#000; color:#fff; padding:8px 12px; border-radius:8px;
-    }
-    .skip-link:focus{ left:12px; top:12px; z-index:1001; }
-
-    /* Containers */
-    .wrapper{
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 var(--space);
-    }
-
-    /* Corrige âncoras com navbar fixa */
-    :target{ scroll-margin-top: 90px; }
-
-    /* =========================
-       NAVBAR
-    ========================== */
-    nav{
-      position: sticky; top:0; z-index:1000;
-      background:#fff;
-      box-shadow: var(--shadow-1);
-    }
-    .nav-inner{
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 14px var(--space);
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
-      flex-wrap:wrap;
-    }
-
-    .logo-nome{
-      display:flex; align-items:center; gap:12px;
-      justify-content:center;
-    }
-    .logo{ max-width:90px; height:auto; }
-    .titulo-loja{
-      font-size: clamp(1.4rem, 2.6vw, 2rem);
-      font-weight: 800;
-      color: var(--brand);
-      letter-spacing:.5px;
-      text-shadow: 0 1px 2px rgba(0,0,0,.06);
-      white-space: nowrap;
-    }
-
-    nav ul{
-      list-style:none; display:flex; gap:10px 16px; align-items:center;
-      justify-content:center; flex-wrap:wrap; margin-left:auto;
-    }
-    nav ul li a{
-      display:inline-block;
-      padding: 8px 14px;
-      border-radius: 10px;
+    /* Estilo atualizado para botões principais */
+    .btn-primario {
+      background-color: #ff4d94; /* rosa vibrante */
+      color: #fff; /* texto branco */
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-size: 1.2em;
       font-weight: 600;
-      color:#444;
-      transition: transform .2s ease, background .2s ease, color .2s ease;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+      text-decoration: none;
+      display: inline-block;
     }
-    nav ul li a:hover,
-    nav ul li a:focus{
-      background:#ffe6f0; color: var(--brand);
-      transform: translateY(-1px);
-    }
-
-    .btn-orcamento{
-      background: var(--brand);
-      color:#fff !important;
-      border-radius: 999px;
-      padding: 9px 18px;
-      box-shadow: 0 6px 14px rgba(233,30,99,.2);
-    }
-    .btn-orcamento:hover,
-    .btn-orcamento:focus{
-      background: var(--brand-600);
-      transform: translateY(-1px) scale(1.03);
-    }
-
-    /* =========================
-       CABEÇALHO
-    ========================== */
-    .cabecalho{
-      background: linear-gradient(90deg, #ffe6f0 0%, #ffffff 60%);
-      padding: clamp(28px, 6vw, 56px) 0;
-      margin-bottom: clamp(20px, 4vw, 36px);
-    }
-    .cabecalho .logo{ margin: 0 auto 10px auto; max-width:120px; }
-    .cabecalho .titulo-loja{ font-size: clamp(1.8rem, 4.5vw, 2.6rem); }
-    .subtitulo{
-      color: var(--muted);
-      font-size: clamp(1rem, 2.2vw, 1.2rem);
-      margin-top:6px;
-    }
-
-    /* =========================
-       BANNER
-    ========================== */
-    .banner img{
-      width:100%;
-      max-height: 460px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-2);
-      margin: 0 auto 40px auto;
-    }
-
-    /* =========================
-       SEÇÕES & TÍTULOS
-    ========================== */
-    section{ margin-bottom: clamp(36px, 6vw, 70px); }
-    .section-title{
-      font-size: clamp(1.4rem, 3.6vw, 2rem);
-      color: var(--brand);
-      font-weight: 800;
-      margin-bottom: 22px;
-    }
-
-    /* =========================
-       GALERIAS / CARDS
-    ========================== */
-    .galeria{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-      align-items: stretch;
-      justify-items: center;
-    }
-
-    .card{
-      background: var(--card);
-      width: 100%;
-      max-width: 340px;               /* + visível */
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-1);
-      overflow: hidden;
-      transition: transform .25s ease, box-shadow .25s ease;
-      text-align:center;
-      cursor: zoom-in;                /* indica zoom */
-    }
-    .card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-2); }
-
-    .card img{
-      width:100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      object-position: center;
-      transition: transform .25s ease, filter .25s ease;
-    }
-    .card:hover img{ transform: scale(1.03); }
-
-    .card-content{
-      padding: 12px 12px 16px;
-    }
-    .card-content strong{
-      color: var(--brand);
-      font-size: 1.05rem;
-      display:block;
-      margin-bottom: 8px;
-      font-weight: 800;
-      letter-spacing:.2px;
-    }
-
-    .whatsapp-btn{
-      background: var(--whats);
-      color:#fff;
-      padding: 10px 14px;
-      border:0;
-      border-radius: 999px;
-      cursor:pointer;
-      font-weight:700;
-      user-select:none;
-      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
-      box-shadow: 0 6px 14px rgba(37,211,102,.25);
-      display:inline-block;
-    }
-    .whatsapp-btn:hover,
-    .whatsapp-btn:focus{
-      background: var(--whats-600);
+    .btn-primario:hover {
+      background-color: #e6396f; /* tom mais escuro no hover */
       transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
-
-    /* =========================
-       SOBRE
-    ========================== */
-    .sobre{
-      background:#fff;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-1);
-      padding: clamp(20px, 4vw, 30px);
-      max-width: 900px;
-      margin: 0 auto;
+    .btn-primario:focus {
+      outline: 3px solid #ff4d94; /* destaque ao focar */
+      outline-offset: 2px;
     }
-    .sobre h2{ color: var(--brand); font-weight:800; margin-bottom:10px; }
-    .sobre p{ color:#444; font-size: 1.05rem; }
-
-    /* =========================
-       CONTATO
-    ========================== */
-    .contato{
-      max-width: 520px;
-      margin: 0 auto;
-      padding: 10px var(--space);
-    }
-    .contato h2{ color: var(--brand); font-weight:800; margin-bottom:12px; }
-
-    /* =========================
-       FORMULÁRIO
-    ========================== */
-    .form-orcamento{
-      max-width: 560px;
-      margin: 0 auto;
-      background:#fff;
-      padding: clamp(20px, 4vw, 28px);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-2);
-      text-align:left;
-    }
-    .form-orcamento h2{
-      text-align:center; color: var(--brand); font-weight:800; margin-bottom: 18px;
-    }
-    .form-orcamento label{
-      display:block; margin-bottom:6px; font-weight:700; color:#333; font-size:.96rem;
-    }
-    .form-orcamento input,
-    .form-orcamento textarea,
-    .form-orcamento select{
-      width:100%;
-      padding: 11px 12px;
-      margin-bottom:14px;
-      border-radius: 10px;
-      border:1px solid #dcdcdc;
-      font-size: 1rem;
-      font-family: inherit;
-      background:#fff;
-      transition: border-color .2s ease, box-shadow .2s ease;
-    }
-    .form-orcamento input:focus,
-    .form-orcamento textarea:focus,
-    .form-orcamento select:focus{
-      border-color: var(--brand);
-      outline:none;
-      box-shadow: 0 0 0 4px rgba(233,30,99,.12);
-    }
-    .form-orcamento input[readonly]{
-      background:#f6f6f6; color:#555; cursor:not-allowed;
-    }
-    .form-orcamento button{
-      width:100%;
-      background: var(--brand);
-      border:0; color:#fff;
-      font-size: 1.08rem; padding: 12px 0;
-      border-radius: 12px; cursor:pointer; font-weight:800;
-      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
-      box-shadow: 0 10px 18px rgba(233,30,99,.25);
-    }
-    .form-orcamento button:hover,
-    .form-orcamento button:focus{
-      background: var(--brand-700);
-      transform: translateY(-1px);
-    }
-
-    /* =========================
-       RODAPÉ
-    ========================== */
-    footer{
-      background:#fafafa;
-      color:#666;
-      font-size:.95rem;
-      text-align:center;
-      padding: 18px var(--space);
-      user-select:none;
-      border-top: 1px solid #eee;
-      margin-top: 40px;
-    }
-
-    /* =========================
-       LIGHTBOX (visualização ampliada)
-    ========================== */
-    .lightbox{
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,.9);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 24px;
-      z-index: 2000;
-    }
-    .lightbox.open{ display:flex; }
-    .lightbox__img{
-      max-width: min(96vw, 1280px);
-      max-height: 86vh;
-      border-radius: 12px;
-      box-shadow: 0 10px 28px rgba(0,0,0,.45);
-    }
-    .lightbox__caption{
-      color:#fff; margin-top: 12px; font-size: 1rem; text-align:center;
-    }
-    .lightbox__btn{
-      position:absolute;
-      top:50%;
-      transform: translateY(-50%);
-      border:0; background: rgba(255,255,255,.18);
-      color:#fff; width:48px; height:48px;
-      border-radius: 999px; cursor:pointer; font-size: 1.6rem;
-      display:grid; place-items:center;
-      transition: background .2s ease, transform .2s ease;
-      user-select:none;
-    }
-    .lightbox__btn:hover{ background: rgba(255,255,255,.28); transform: translateY(-50%) scale(1.06); }
-    .lightbox__prev{ left: 18px; }
-    .lightbox__next{ right: 18px; }
-    .lightbox__close{
-      position:absolute; top:18px; right:18px;
-      width:44px; height:44px; border:0; border-radius:999px;
-      background: rgba(255,255,255,.18); color:#fff; font-size:1.4rem; cursor:pointer;
-      display:grid; place-items:center;
-    }
-    .lightbox__close:hover{ background: rgba(255,255,255,.28); }
-
-    /* =========================
-       RESPONSIVO
-    ========================== */
-    @media (max-width: 768px){
-      .nav-inner{ justify-content:center; }
-      nav ul{ justify-content:center; }
-      .logo-nome{ width:100%; justify-content:center; }
-      .lightbox__btn{ width:42px; height:42px; font-size:1.4rem; }
-    }
-    @media (max-width: 480px){
-      .logo{ max-width:78px; }
-      .titulo-loja{ font-size: 1.5rem; }
-      .card{ max-width: 100%; }
-    }
-
-    /* =========================
-       ANIMAÇÕES SUAVES
-    ========================== */
-    .fade-up{ opacity:0; transform: translateY(18px); }
-    .fade-up.revealed{ opacity:1; transform: translateY(0); transition: all .6s ease; }
   </style>
 </head>
 <body>
 
-  <a class="skip-link" href="#inicio">Pular para conteúdo</a>
+  <!-- Link de pular conteúdo ( acessibilidade) -->
+  <a class="skip-link" href="#inicio">Pular para conteúdo 🚀</a>
 
-  <!-- ========== NAVBAR ========== -->
-  <nav aria-label="Navegação principal">
-    <div class="nav-inner">
+  <!-- Navbar -->
+  <nav aria-label="Navegação principal" class="navbar">
+    <div class="nav-inner wrapper">
       <div class="logo-nome">
         <img src="imagens/logo.png" alt="Logo Day Decorações" class="logo" />
         <div class="titulo-loja">DAY DECORAÇÕES</div>
       </div>
-      <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#decoracoes">Decorações</a></li>
-        <li><a href="#festas-realizadas">Festas Realizadas</a></li>
-        <li><a href="#sobre">Sobre a Empresa</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li><a href="#form-orcamento" class="btn-orcamento">Solicitar Orçamento</a></li>
+      <ul class="menu" role="navigation" aria-label="Menu principal">
+        <li><a href="#inicio">Início 🏠</a></li>
+        <li><a href="temas.html">Temas 🎨</a></li>
+        <li><a href="festas.html">Festas Realizadas 🎉</a></li>
+        <li><a href="sobre.html">Sobre a Empresa 🏢</a></li>
+        <li><a href="contato.html">Contato 📞</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- ========== CABEÇALHO ========== -->
-  <header class="cabecalho wrapper" id="inicio">
+  <!-- Cabeçalho -->
+  <header id="inicio" class="cabecalho wrapper" role="banner">
     <img src="imagens/logo.png" alt="Logo Day Decorações" class="logo" loading="lazy" />
-    <h1 class="titulo-loja">DAY DECORAÇÕES</h1>
+    <h1 class="titulo-loja">DAY DECORAÇÕES 🎊</h1>
     <p class="subtitulo">Transformando momentos em lembranças inesquecíveis ✨</p>
   </header>
 
-  <!-- ========== BANNER ========== -->
-  <section class="banner wrapper">
-    <img src="imagens/banner.jpg" alt="Banner principal com composições de decoração" loading="lazy" />
-  </section>
-
-  <!-- ========== PRODUTOS / TEMAS ========== -->
-  <section class="produtos" id="decoracoes">
-    <h2>Temas de Mini Decorações</h2>
-    <div class="galeria">
-      <div class="card"><img src="imagens/produtos/tema1.jpg" alt="Stitch" /><div class="card-content"><strong>Stitch</strong><span class="whatsapp-btn" onclick="scrollToForm('Stitch')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema2.jpg" alt="Jardim Encantado" /><div class="card-content"><strong>Jardim Encantado</strong><span class="whatsapp-btn" onclick="scrollToForm('Jardim Encantado')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema3.jpg" alt="Mickey" /><div class="card-content"><strong>Mickey</strong><span class="whatsapp-btn" onclick="scrollToForm('Mickey')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema4.jpg" alt="Capivara" /><div class="card-content"><strong>Capivara</strong><span class="whatsapp-btn" onclick="scrollToForm('Capivara')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema5.jpg" alt="Chá Revelação" /><div class="card-content"><strong>Chá Revelação</strong><span class="whatsapp-btn" onclick="scrollToForm('Chá Revelação')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema6.jpg" alt="Vingadores" /><div class="card-content"><strong>Vingadores</strong><span class="whatsapp-btn" onclick="scrollToForm('Vingadores')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema7.jpg" alt="Minnie" /><div class="card-content"><strong>Minnie</strong><span class="whatsapp-btn" onclick="scrollToForm('Minnie')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema8.jpg" alt="Homem-Aranha" /><div class="card-content"><strong>Homem-Aranha</strong><span class="whatsapp-btn" onclick="scrollToForm('Homem-Aranha')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema9.jpg" alt="Bobbie Goods" /><div class="card-content"><strong>Bobbie Goods</strong><span class="whatsapp-btn" onclick="scrollToForm('Bobbie Goods')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema10.jpg" alt="Patrulha Canina" /><div class="card-content"><strong>Patrulha Canina</strong><span class="whatsapp-btn" onclick="scrollToForm('Patrulha Canina')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema11.jpg" alt="Safari" /><div class="card-content"><strong>Safari</strong><span class="whatsapp-btn" onclick="scrollToForm('Safari')">Solicitar Orçamento</span></div></div>
-      
-      <div class="card"><img src="imagens/produtos/tema12.jpg" alt="Festa Junina" /><div class="card-content"><strong>Festa Junina</strong><span class="whatsapp-btn" onclick="scrollToForm('Festa Junina')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema13.jpg" alt="Caminhão" /><div class="card-content"><strong>Caminhão</strong><span class="whatsapp-btn" onclick="scrollToForm('Caminhão')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema14.jpg" alt="Minecraft" /><div class="card-content"><strong>Minecraft</strong><span class="whatsapp-btn" onclick="scrollToForm('Minecraft')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema15.jpg" alt="Ursinhos Carinhosos" /><div class="card-content"><strong>Ursinhos Carinhosos</strong><span class="whatsapp-btn" onclick="scrollToForm('Ursinhos Carinhosos')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema16.jpg" alt="Moana" /><div class="card-content"><strong>Moana</strong><span class="whatsapp-btn" onclick="scrollToForm('Moana')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema17.jpg" alt="Wandinha" /><div class="card-content"><strong>Wandinha</strong><span class="whatsapp-btn" onclick="scrollToForm('Wandinha')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema18.jpg" alt="Minions" /><div class="card-content"><strong>Minions</strong><span class="whatsapp-btn" onclick="scrollToForm('Minions')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema19.jpg" alt="Sonic" /><div class="card-content"><strong>Sonic</strong><span class="whatsapp-btn" onclick="scrollToForm('Sonic')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema20.jpg" alt="Ursinho Rei" /><div class="card-content"><strong>Ursinho Rei</strong><span class="whatsapp-btn" onclick="scrollToForm('Ursinho Rei')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema21.jpg" alt="PJ Masks" /><div class="card-content"><strong>PJ Masks</strong><span class="whatsapp-btn" onclick="scrollToForm('PJ Masks')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema22.jpg" alt="Smurf" /><div class="card-content"><strong>Smurf</strong><span class="whatsapp-btn" onclick="scrollToForm('Smurf')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema23.jpg" alt="Toy Story" /><div class="card-content"><strong>Toy Story</strong><span class="whatsapp-btn" onclick="scrollToForm('Toy Story')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema24.jpg" alt="Monstros S.A." /><div class="card-content"><strong>Monstros S.A.</strong><span class="whatsapp-btn" onclick="scrollToForm('Monstros S.A.')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema25.jpg" alt="Ursinha Realeza" /><div class="card-content"><strong>Ursinha Realeza</strong><span class="whatsapp-btn" onclick="scrollToForm('Ursinha Realeza')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema26.jpg" alt="Skye" /><div class="card-content"><strong>Skye</strong><span class="whatsapp-btn" onclick="scrollToForm('Skye')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema27.jpg" alt="Divertidamente2" /><div class="card-content"><strong>Divertidamente2</strong><span class="whatsapp-btn" onclick="scrollToForm('Divertidamente2')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema28.jpg" alt="Hulk" /><div class="card-content"><strong>Hulk</strong><span class="whatsapp-btn" onclick="scrollToForm('Hulk')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema29.jpg" alt="Mulher Maravilha" /><div class="card-content"><strong>Mulher Maravilha</strong><span class="whatsapp-btn" onclick="scrollToForm('Mulher Maravilha')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema30.jpg" alt="Galinha Pintadinha" /><div class="card-content"><strong>Galinha Pintadinha</strong><span class="whatsapp-btn" onclick="scrollToForm('Galinha Pintadinha')">Solicitar Orçamento</span></div></div>
-
-      <div class="card"><img src="imagens/produtos/tema31.jpg" alt="Lady bug" /><div class="card-content"><strong>Lady bug</strong><span class="whatsapp-btn" onclick="scrollToForm('Lady bug')">Solicitar Orçamento</span></div></div>
-
-      </div>
-  </section>
-
-  <!-- ========== FESTAS REALIZADAS ========== -->
-  <section class="wrapper fade-up" id="festas-realizadas">
-    <h2 class="section-title">Festas Realizadas</h2>
-    <div class="galeria">
-      <div class="card">
-        <img src="imagens/festas/festa1.jpg" alt="Festa tema Patrulha Canina - exemplo 1" loading="lazy" decoding="async" />
-        <div class="card-content"><strong>Patrulha Canina</strong></div>
-      </div>
-      <div class="card">
-        <img src="imagens/festas/festa2.jpg" alt="Festa tema Patrulha Canina - exemplo 2" loading="lazy" decoding="async" />
-        <div class="card-content"><strong>Patrulha Canina</strong></div>
-      </div>
-      <div class="card">
-        <img src="imagens/festas/festa3.jpg" alt="Festa tema Homem-Aranha" loading="lazy" decoding="async" />
-        <div class="card-content"><strong>Homem-Aranha</strong></div>
-      </div>
+  <!-- Seção com os links principais -->
+  <section class="banner wrapper duas-secoes" aria-label="Opções principais">
+    <!-- Temas -->
+    <div class="section-box fade-up" tabindex="0">
+      <h2 class="section-title">Temas de Mini Decorações 🖼️</h2>
+      <p>Conheça nossos temas criativos para festas e eventos 🎈.</p>
+      <a href="temas.html" class="btn-primario">Ver Temas 📁</a>
+    </div>
+    <!-- Festas -->
+    <div class="section-box fade-up" tabindex="0">
+      <h2 class="section-title">Festas Realizadas 🥳</h2>
+      <p>Veja algumas festas que já realizamos 🎂.</p>
+      <a href="festas.html" class="btn-primario">Ver Festas 🎥</a>
     </div>
   </section>
 
-  <!-- ========== SOBRE ========== -->
-  <section class="sobre wrapper fade-up" id="sobre" aria-labelledby="sobre-title">
-    <h2 id="sobre-title">Sobre a Day Decorações</h2>
-    <p>
-      Somos apaixonados por mini decorações criativas e modernas. Criamos temas personalizados
-      para deixar qualquer espaço mais encantador e com um toque especial.
-    </p>
-  </section>
+  <!-- Corpo principal (adicionar conteúdo adicional aqui, se necessário) -->
 
-  <!-- ========== CONTATO ========== -->
-  <section class="contato wrapper fade-up" id="contato" aria-labelledby="contato-title">
-    <h2 id="contato-title">Entre em Contato</h2>
-    <a href="https://wa.me/5541996059852?text=Olá!%20Quero%20saber%20mais%20sobre%20as%20mini%20decorações."
-       target="_blank" rel="noopener" class="whatsapp-btn" aria-label="Abrir WhatsApp para conversar">
-      Fale Conosco no WhatsApp
-    </a>
-  </section>
-
-  <!-- ========== FORMULÁRIO ========== -->
-  <section id="form-orcamento" class="form-orcamento wrapper fade-up" aria-labelledby="form-title">
-    <h2 id="form-title">Solicitar Orçamento</h2>
-    <form id="orcamentoForm" novalidate>
-      <label for="nome">Nome Completo</label>
-      <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name" required />
-
-      <label for="telefone">Telefone</label>
-      <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000"
-             pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$" required />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" autocomplete="email" required />
-
-      <label for="endereco">Endereço</label>
-      <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro, cidade" autocomplete="street-address" required />
-
-      <label for="tema">Tema Escolhido</label>
-      <input type="text" id="tema" name="tema" readonly />
-
-      <label for="data-festa">Data para Festa</label>
-      <input type="date" id="data-festa" name="data-festa" required />
-
-      <label for="pagamento">Método de Pagamento</label>
-      <select id="pagamento" name="pagamento" required>
-        <option value="" disabled selected>Selecione o método</option>
-        <option value="Pix">Pix</option>
-        <option value="Cartão de Crédito">Cartão de Crédito</option>
-        <option value="Cartão de Débito">Cartão de Débito</option>
-        <option value="Boleto">Boleto</option>
-        <option value="Dinheiro">Dinheiro</option>
-      </select>
-
-      <label for="mensagem">Mensagem</label>
-      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Conte o que deseja..." required></textarea>
-
-      <button type="submit">Enviar Solicitação</button>
-    </form>
-  </section>
-
-  <!-- ========== RODAPÉ ========== -->
-  <footer role="contentinfo">
-    <p>&copy; 2025 Day Decorações. Todos os direitos reservados.</p>
+  <!-- Rodapé -->
+  <footer role="contentinfo" style="margin-top: 2em; padding: 1em; background:#f8f8f8; text-align:center;">
+    <p>&copy; 2025 Day Decorações. Todos os direitos reservados. 🌟</p>
   </footer>
 
-  <!-- ========== LIGHTBOX MARKUP ========== -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de imagem" aria-hidden="true">
-    <button class="lightbox__close" id="lbClose" aria-label="Fechar (Esc)">✕</button>
-    <button class="lightbox__btn lightbox__prev" id="lbPrev" aria-label="Imagem anterior">❮</button>
-    <img class="lightbox__img" id="lbImg" alt="" />
-    <div class="lightbox__caption" id="lbCap"></div>
-    <button class="lightbox__btn lightbox__next" id="lbNext" aria-label="Próxima imagem">❯</button>
-  </div>
-
-  <!-- ========== SCRIPTS ========== -->
+  <!-- Scripts de funcionalidades internas -->
   <script>
-    // Preenche o tema e rola suave para o formulário
-    function scrollToForm(tema) {
-      const temaInput = document.getElementById('tema');
-      temaInput.value = tema || '';
-      document.getElementById('nome').focus();
-      document.getElementById('form-orcamento').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Envio para WhatsApp
-    (function(){
-      const form = document.getElementById('orcamentoForm');
-      form.addEventListener('submit', function(event){
-        event.preventDefault();
-
-        const nome = form.nome.value.trim();
-        const telefone = form.telefone.value.trim();
-        const email = form.email.value.trim();
-        const endereco = form.endereco.value.trim();
-        const tema = form.tema.value.trim();
-        const dataFesta = form['data-festa'].value;
-        const pagamento = form.pagamento.value;
-        const mensagem = form.mensagem.value.trim();
-
-        // Validações simples
-        if(!nome || !telefone || !email || !endereco || !dataFesta || !pagamento || !mensagem){
-          alert('Por favor, preencha todos os campos obrigatórios.');
-          return;
-        }
-
-        const textoWhats =
-          `📋 *Solicitação de Orçamento*\n` +
-          `----------------------------------\n` +
-          `👤 *Nome:* ${nome}\n` +
-          `📞 *Telefone:* ${telefone}\n` +
-          `📧 *Email:* ${email}\n` +
-          `📍 *Endereço:* ${endereco}\n` +
-          `🎨 *Tema Escolhido:* ${tema}\n` +
-          `📅 *Data para Festa:* ${dataFesta}\n` +
-          `💳 *Método de Pagamento:* ${pagamento}\n` +
-          `💬 *Mensagem:* ${mensagem}\n` +
-          `----------------------------------\n` +
-          `Obrigado pela preferência! 😊`;
-
-        const numeroWhats = "5541996059852";
-        const url = `https://wa.me/${numeroWhats}?text=${encodeURIComponent(textoWhats)}`;
-        window.open(url, '_blank', 'noopener');
-      });
-    })();
-
-    // Revela elementos com animação ao rolar
-    (function(){
-      const observer = new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{
-          if(entry.isIntersecting){
+    // Animações fade-up
+    (function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
             entry.target.classList.add('revealed');
             observer.unobserve(entry.target);
           }
         });
       }, { threshold: 0.12 });
-
-      document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     })();
 
-    // =========================
-    // LIGHTBOX: clique nas imagens para ver maior
-    // =========================
-    (function(){
+    // Lightbox para galeria (se houver)
+    (function() {
       const overlay = document.getElementById('lightbox');
-      const imgEl   = document.getElementById('lbImg');
-      const capEl   = document.getElementById('lbCap');
-      const btnPrev = document.getElementById('lbPrev');
-      const btnNext = document.getElementById('lbNext');
-      const btnClose= document.getElementById('lbClose');
+      if (overlay) {
+        const imgEl = document.getElementById('lbImg');
+        const capEl = document.getElementById('lbCap');
+        const btnPrev = document.getElementById('lbPrev');
+        const btnNext = document.getElementById('lbNext');
+        const btnClose = document.getElementById('lbClose');
 
-      // todas as imagens das galerias
-      const images = Array.from(document.querySelectorAll('.galeria .card img'));
+        const images = Array.from(document.querySelectorAll('.galeria .card img'));
+        let indexAtual = -1;
+        let lastFocused = null;
 
-      // melhorar acessibilidade: foco e teclado nas thumbs
-      images.forEach(img=>{
-        img.setAttribute('tabindex','0');
-        img.setAttribute('role','button');
-        img.setAttribute('aria-label', `Ampliar imagem: ${img.alt || 'foto'}`);
-      });
-
-      let indexAtual = -1;
-      let lastFocused = null;
-
-      function abrir(i){
-        if(i < 0 || i >= images.length) return;
-        indexAtual = i;
-        const src = images[i].getAttribute('src');
-        const alt = images[i].getAttribute('alt') || '';
-        imgEl.src = src;
-        imgEl.alt = alt;
-        capEl.textContent = alt;
-        overlay.classList.add('open');
-        overlay.setAttribute('aria-hidden','false');
-        lastFocused = document.activeElement;
-        btnClose.focus();
-        document.body.style.overflow = 'hidden';
-      }
-
-      function fechar(){
-        overlay.classList.remove('open');
-        overlay.setAttribute('aria-hidden','true');
-        imgEl.src = '';
-        document.body.style.overflow = '';
-        if(lastFocused) lastFocused.focus();
-      }
-
-      function prox(){
-        abrir((indexAtual + 1) % images.length);
-      }
-      function ant(){
-        abrir((indexAtual - 1 + images.length) % images.length);
-      }
-
-      images.forEach((img, i) => {
-        img.addEventListener('click', () => abrir(i));
-        img.addEventListener('keydown', (ev)=>{
-          if(ev.key === 'Enter' || ev.key === ' '){
-            ev.preventDefault();
-            abrir(i);
-          }
+        images.forEach((img, i) => {
+          img.setAttribute('tabindex', '0');
+          img.setAttribute('role', 'button');
+          img.setAttribute('aria-label', `Ampliar imagem: ${img.alt || 'foto'}`);
+          img.addEventListener('click', () => abrir(i));
+          img.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Enter' || ev.key === ' ') {
+              ev.preventDefault();
+              abrir(i);
+            }
+          });
         });
-      });
 
-      btnPrev.addEventListener('click', (e)=>{ e.stopPropagation(); ant(); });
-      btnNext.addEventListener('click', (e)=>{ e.stopPropagation(); prox(); });
-      btnClose.addEventListener('click', (e)=>{ e.stopPropagation(); fechar(); });
+        function abrir(i) {
+          if (i < 0 || i >= images.length) return;
+          indexAtual = i;
+          const src = images[i].getAttribute('src');
+          const alt = images[i].getAttribute('alt') || '';
+          imgEl.src = src;
+          imgEl.alt = alt;
+          capEl.textContent = alt;
+          overlay.classList.add('open');
+          overlay.setAttribute('aria-hidden', 'false');
+          lastFocused = document.activeElement;
+          document.getElementById('lbClose').focus();
+          document.body.style.overflow = 'hidden';
+        }
 
-      overlay.addEventListener('click', (e)=>{
-        if(e.target === overlay){ fechar(); }
-      });
+        function fechar() {
+          overlay.classList.remove('open');
+          overlay.setAttribute('aria-hidden', 'true');
+          imgEl.src = '';
+          document.body.style.overflow = '';
+          if (lastFocused) lastFocused.focus();
+        }
 
-      document.addEventListener('keydown', (e)=>{
-        if(!overlay.classList.contains('open')) return;
-        if(e.key === 'Escape') fechar();
-        if(e.key === 'ArrowRight') prox();
-        if(e.key === 'ArrowLeft') ant();
-      });
+        function prox() { abrir((indexAtual + 1) % images.length); }
+        function ant() { abrir((indexAtual - 1 + images.length) % images.length); }
+
+        document.getElementById('lbPrev').addEventListener('click', (e) => { e.stopPropagation(); ant(); });
+        document.getElementById('lbNext').addEventListener('click', (e) => { e.stopPropagation(); prox(); });
+        document.getElementById('lbClose').addEventListener('click', (e) => { e.stopPropagation(); fechar(); });
+
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) fechar();
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (!overlay.classList.contains('open')) return;
+          if (e.key === 'Escape') fechar();
+          if (e.key === 'ArrowRight') prox();
+          if (e.key === 'ArrowLeft') ant();
+        });
+      }
     })();
   </script>
 </body>
