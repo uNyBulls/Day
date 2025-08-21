@@ -1,0 +1,340 @@
+/* ===== Reset e Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', 'Poppins', sans-serif;
+  background-color: #ffe6f0; /* tom de rosa clarinho */
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+  padding-top: 80px; /* ajuste para o cabeçalho fixo */
+}
+
+/* Tipografia principal e títulos */
+h1, h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+/* Cabeçalho com efeito de gradiente e sombra em tons de rosa */
+header.cabecalho {
+  background: linear-gradient(135deg, #ff89a6 0%, #ff4d94 100%);
+  padding: 60px 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  color: #fff;
+  text-align: center;
+}
+
+.titulo-loja {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+/* Subtítulo do cabeçalho */
+.subtitulo {
+  font-size: 1.2em;
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Navbar fixa com fundo sutil e efeito de blur em tons de rosa claro */
+nav {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  padding: 12px 24px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.logo-nome {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.logo {
+  width: 70px;
+  height: auto;
+  margin-right: 16px;
+}
+.titulo-loja {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  color: #222;
+}
+ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+ul li a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+ul li a:hover,
+ul li a.active {
+  background-color: #ff4d94;
+  color: #fff;
+}
+
+/* Grid de temas e produtos com cartões responsivos */
+.grid-temas {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+.card {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.07);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.card:hover img {
+  transform: scale(1.05);
+}
+.card strong {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  color: #222;
+}
+
+/* Botão Solicitar Orçamento com rosa vibrante */
+.solicitar-btn {
+  background: #ff4d94;
+  border: none;
+  padding: 12px 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  margin-top: 20px;
+  display: inline-block;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+.solicitar-btn:hover {
+  background-color: #ff1f6b;
+}
+
+/* Seção de festas com grid responsivo */
+.festas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+  padding: 20px;
+}
+.festa-card {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.07);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+.festa-card img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.festa-card:hover img {
+  transform: scale(1.05);
+}
+.card-content {
+  margin-top: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  color: #222;
+  text-align: center;
+}
+
+/* Formulário estilizado */
+#formulario-container {
+  background-color: #fff;
+  max-width: 750px;
+  margin: 60px auto;
+  padding: 50px 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+#formulario-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2em;
+  margin-bottom: 35px;
+  text-align: center;
+  color: #222;
+}
+label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #555;
+}
+/* Mantém os estilos para inputs de email, telefone e o restante */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 12px rgba(0,123,255,0.2);
+}
+button[type="submit"] {
+  margin-top: 40px;
+  width: 100%;
+  padding: 18px;
+  background-color: #28a745;
+  color: #fff;
+  font-size: 1.3em;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+button[type="submit"]:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+/* Rodapé */
+footer {
+  margin-top: 60px;
+  padding: 20px;
+  background: #f0f0f0;
+}
+
+/* Animações fade-up */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =======================
+   Estilos para dispositivos móveis
+   ======================= */
+@media(max-width: 768px) {
+  /* Ajusta a grade de temas para exibir 3 por linha */
+  .grid-temas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /* Centraliza o conteúdo dos cartões e nomes dos temas */
+  .card {
+    align-items: center;
+  }
+  /* Ajusta o tamanho do título para caber melhor */
+  .titulo-loja {
+    font-size: 1.5em;
+  }
+
+  /* Melhorias específicas para o "Fale Conosco" em dispositivos móveis */
+  #contato {
+    padding: 60px 20px;
+  }
+
+  #contato h2 {
+    font-size: 2em; /* Reduz o tamanho do título */
+  }
+
+  #contato-content {
+    flex-direction: column; /* Empilha os blocos */
+    align-items: center; /* Centraliza os itens */
+    gap: 30px; /* Espaçamento maior entre blocos */
+  }
+
+  #contato form,
+  #contato-info {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .contato-item {
+    padding: 15px;
+    font-size: 0.95em;
+  }
+
+  #contato form h3 {
+    font-size: 1.5em;
+  }
+
+  button[type="submit"] {
+    padding: 14px;
+    font-size: 1.1em;
+  }
+
+  /* Ajuste nas linhas de contato para mobile */
+  .contato-bloco + .contato-bloco::before {
+    left: 0;
+    width: 100%;
+  }
+}
+
+/* Linhas entre os blocos de contato */
+.contato-quadrados .quadrado + .quadrado {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  margin-top: 20px;
+}

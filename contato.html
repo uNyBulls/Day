@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contato - Day Decorações</title>
+  <link rel="stylesheet" href="estilo.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Estilos específicos para a página de contato */
+    #formulario-container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    #formulario-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    /* Estilos para as seções de contato e mapa */
+    .contato-info {
+      margin-top: 40px;
+      padding: 20px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Novo estilo para os contatos em quadrados */
+    .contato-quadrados {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .quadrado {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .quadrado:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.07);
+    }
+    .quadrado .icon {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #ff4d94; /* rosa vibrante padrão, pode ajustar por ícone */
+    }
+    /* Títulos dentro dos quadrados */
+    .quadrado h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2em;
+      margin-bottom: 8px;
+      color: #222;
+    }
+    /* Texto nos quadrados */
+    .quadrado p {
+      font-size: 1em;
+      color: #555;
+    }
+
+    /* Mapa */
+    .map-container {
+      margin-top: 30px;
+    }
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+
+    /* =======================
+       Estilos para inputs de telefone e outros
+       ======================= */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1em;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="date"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 12px rgba(0,123,255,0.2);
+    }
+
+    /* Botão Submit estilizado */
+    button[type="submit"] {
+      margin-top: 40px;
+      width: 100%;
+      padding: 18px;
+      background-color: #28a745;
+      color: #fff;
+      font-size: 1.3em;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button[type="submit"]:hover {
+      background-color: #218838;
+      transform: translateY(-2px);
+    }
+
+    /* Rodapé */
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+
+    /* Animações fade-up */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-up.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =======================
+       Estilos para dispositivos móveis
+       ======================= */
+    @media(max-width: 768px) {
+      /* Ajusta a grade de temas para exibir 3 por linha */
+      .grid-temas {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      /* Centraliza o conteúdo dos cartões e nomes dos temas */
+      .card {
+        align-items: center;
+      }
+      /* Ajusta o tamanho do título para caber melhor */
+      .titulo-loja {
+        font-size: 1.5em;
+      }
+
+      /* Melhorias específicas para o "Fale Conosco" em dispositivos móveis */
+      #contato {
+        padding: 60px 20px;
+      }
+
+      #contato h2 {
+        font-size: 2em; /* Reduz o tamanho do título */
+      }
+
+      #contato-content {
+        flex-direction: column; /* Empilha os blocos */
+        align-items: center; /* Centraliza os itens */
+        gap: 30px; /* Espaçamento maior entre blocos */
+      }
+
+      #contato form,
+      #contato-info {
+        width: 100%;
+        padding: 20px;
+      }
+
+      .contato-item {
+        padding: 15px;
+        font-size: 0.95em;
+      }
+
+      #contato form h3 {
+        font-size: 1.5em;
+      }
+
+      button[type="submit"] {
+        padding: 14px;
+        font-size: 1.1em;
+      }
+
+      /* Ajuste nas linhas de contato para mobile */
+      .contato-bloco + .contato-bloco::before {
+        left: 0;
+        width: 100%;
+      }
+    }
+
+    /* Linhas entre os blocos de contato */
+    .contato-quadrados .quadrado + .quadrado {
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#inicio">Pular para conteúdo 🚀</a>
+  
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <div class="logo-nome">
+        <img src="imagens/logo.png" alt="Logo Day Decorações" class="logo" />
+        <div class="titulo-loja">DAY DECORAÇÕES</div>
+      </div>
+      <ul>
+        <li><a href="index.html#inicio">Início 🏠</a></li>
+        <li><a href="temas.html">Temas 🎨</a></li>
+        <li><a href="festas.html">Festas Realizadas 🎊</a></li>
+        <li><a href="sobre.html">Sobre a Empresa 🏢</a></li>
+        <li><a href="contato.html" class="active">Contato 📞</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Cabeçalho -->
+  <header class="cabecalho" id="inicio">
+    <h1 class="titulo-loja">Contato 📱✨</h1>
+    <p class="subtitulo">
+      Estamos prontos para ajudar! Entre em contato conosco para solicitar orçamentos, tirar dúvidas ou agendar uma visita. 🤝🎉
+    </p>
+  </header>
+
+  <!-- Seção principal -->
+  <section>
+    <!-- Formulário de contato -->
+    <div id="formulario-container">
+      <h2>Fale Conosco 📩</h2>
+      <form id="whatsappForm">
+        <label for="nome"><strong>Nome 📝</strong></label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email"><strong>Email 📧</strong></label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="telefone"><strong>Telefone 📞</strong></label>
+        <input type="tel" id="telefone" name="telefone" value="" required />
+
+        <label for="mensagem"><strong>Mensagem 💬</strong></label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit">Enviar pelo WhatsApp 🚀</button>
+      </form>
+    </div>
+
+    <!-- Informações de contato em quadrados -->
+    <div class="contato-info">
+      <h2 style="text-align: center; margin-bottom: 20px;">Nossos Contatos 📍</h2>
+      
+      <div class="contato-quadrados">
+        <!-- Endereço -->
+        <div class="quadrado">
+          <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Endereço 🏢</h3>
+          <p>Rua Hélio Bassetti, Nº 403, CEP 83454-100</p>
+        </div>
+        <!-- Telefone -->
+        <div class="quadrado">
+          <div class="icon"><i class="fas fa-phone"></i></div>
+          <h3>Telefone 📱</h3>
+          <p>(41) 99605-9852</p>
+        </div>
+        <!-- Email -->
+        <div class="quadrado">
+          <div class="icon"><i class="fas fa-envelope"></i></div>
+          <h3>Email 📧</h3>
+          <p>freitasdayane315@gmail.com</p>
+        </div>
+        <!-- Localização -->
+        <div class="quadrado">
+          <div class="icon"><i class="fas fa-globe"></i></div>
+          <h3>Localização 🌎</h3>
+          <p>Bocaiuva do Sul, PR</p>
+        </div>
+      </div>
+      
+      <!-- Mapa -->
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps?q=Rua Hélio Bassetti, 403, CEP 83454-100&output=embed" width="100%" height="250" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 Day Decorações. Todos os direitos reservados. ✨🎉</p>
+  </footer>
+
+  <script>
+    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nome = encodeURIComponent(document.getElementById('nome').value);
+      const email = encodeURIComponent(document.getElementById('email').value);
+      const telefone = encodeURIComponent(document.getElementById('telefone').value);
+      const mensagem = encodeURIComponent(document.getElementById('mensagem').value);
+      const texto = `Olá, gostaria de um orçamento.%0A%0ANome: ${nome}%0AEmail: ${email}%0ATelefone: ${telefone}%0AMensagem: ${mensagem}`;
+      const numeroWhatsApp = '5541996059852';
+      window.open(`https://wa.me/${numeroWhatsApp}?text=${texto}`, '_blank');
+    });
+  </script>
+</body>
+</html>
