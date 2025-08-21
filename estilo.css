@@ -287,7 +287,7 @@ footer {
   }
   /* Ajusta o tamanho do título para caber melhor */
   .titulo-loja {
-    font-size: 1.5em;
+    font-size: 1.0em;
   }
 
   /* Melhorias específicas para o "Fale Conosco" em dispositivos móveis */
@@ -322,7 +322,7 @@ footer {
 
   button[type="submit"] {
     padding: 14px;
-    font-size: 1.1em;
+    font-size: 1.0em;
   }
 
   /* Ajuste nas linhas de contato para mobile */
